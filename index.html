@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Заметки</title>
+	<link rel="stylesheet" type="text/css" href="styles/style.css">
+	<link rel="stylesheet" title="theme" type="text/css" href="">
+	<link rel="stylesheet" type="text/css" href="styles/adaptive.css">
+	<link rel="stylesheet" title="theme" type="text/css">
+	<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+	<link rel="icon" type="image/x-icon" href="images/favicon.png">
+</head>
+<body>
+	<div class="head">
+  	<select id="sel_l">
+   	  <option value="en">ENG</option>
+  	  <option value="ua">UKR</option>
+  	  <option value="ru">RUS</option>
+  	  <option value="pl">POL</option>
+  	  <option value="de">DEN</option>
+  	  <option value="fr">FRA</option>
+  	</select>
+		<div class="all_note">
+			<p class="title_all">Создание заметки</p>
+			<input id="title_input" maxlength="10" type="text" class="title_set" value="Заметка">
+			<textarea id="txt_input" class="txt_set" placeholder="Введите текст заметки"></textarea>
+			<button id="btn_note" class="btn_set">Сохранить</button>
+		</div>
+		<div class="theme">
+			<img id="th" class="dark_t" data-theme="dark" src="images/dark_t.png">
+			<img id="th" class="light_t" data-theme="light" src="images/light_t.png">
+		</div>
+	</div>
+	<div id="notes"></div>
+	<script type="text/javascript" src="scripts/lang.js"></script>
+	<script type="text/javascript" src="scripts/script.js"></script>
+</body>
+</html>
