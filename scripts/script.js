@@ -10,6 +10,26 @@ themeSwitcher.forEach(switcher => {
 	switcher.addEventListener('click', function() {
 		applyTheme(this.dataset.theme);
 		localStorage.setItem('theme', this.dataset.theme)
+		if(localStorage.getItem('theme') == "dark") {
+			if(title_notes.style.textDecoration == "line-through") {
+				title_notes.style.textDecoration = "none";
+				title_notes.style.color = "#fff";
+			}
+			else {
+				title_notes.style.textDecoration = "line-through";
+				title_notes.style.color = "#696969";
+			}
+		}
+		if(localStorage.getItem('theme') == "light") {
+			if(title_notes.style.textDecoration == "line-through") {
+				title_notes.style.textDecoration = "none";
+				title_notes.style.color = "#000";
+			}
+			else {
+				title_notes.style.textDecoration = "line-through";
+				title_notes.style.color = "#696969";
+			}
+		}
 	})
 })
 
@@ -108,7 +128,7 @@ btn_n.addEventListener('click', function() {
 		let made = document.getElementById(`made${i}`);
 		made.addEventListener('click', function () {	
 			let title_notes = document.getElementById(`title_notes${i}`);
-			if(activeTheme == 'dark') {
+			if(localStorage.getItem('theme') == "dark") {
 				if(title_notes.style.textDecoration == "line-through") {
 					title_notes.style.textDecoration = "none";
 					title_notes.style.color = "#fff";
@@ -118,7 +138,7 @@ btn_n.addEventListener('click', function() {
 					title_notes.style.color = "#696969";
 				}
 			}
-			if(activeTheme == 'light') {
+			if(localStorage.getItem('theme') == "light") {
 				if(title_notes.style.textDecoration == "line-through") {
 					title_notes.style.textDecoration = "none";
 					title_notes.style.color = "#000";
@@ -152,7 +172,7 @@ btn_n.addEventListener('click', function() {
 			let txt = document.getElementById('txt_input');
 			title.value = localStorage.getItem(`title${i}`);
 			txt.value = localStorage.getItem(`txt${i}`);
-	  	let elem = document.getElementById(`note${clicks}`)
+	  	let elem = document.getElementById(`note${i}`)
 			localStorage.setItem('clicks', --clicks);
 			console.log(clicks);
   		elem.style.opacity = '0';
@@ -177,25 +197,32 @@ function onloadpage() {
 		let made = document.getElementById(`made${i}`);
 		made.addEventListener('click', function () {	
 			let title_notes = document.getElementById(`title_notes${i}`);
-			if(title_notes.style.textDecoration == "line-through") {
-				title_notes.style.textDecoration = "none";
-				if(activeTheme == "light") {
-					title_notes.style.color = "#000";
+			if(localStorage.getItem('theme') == "dark") {
+				if(title_notes.style.textDecoration == "line-through") {
+					title_notes.style.textDecoration = "none";
+					title_notes.style.color = "#fff";
 				}
-				if(activeTheme == "dark"){
-					title_notes.style.color = "#fff"
+				else {
+					title_notes.style.textDecoration = "line-through";
+					title_notes.style.color = "#696969";
 				}
 			}
-			else {
-				title_notes.style.textDecoration = "line-through";
-				title_notes.style.color = "#696969";
+			if(localStorage.getItem('theme') == "light") {
+				if(title_notes.style.textDecoration == "line-through") {
+					title_notes.style.textDecoration = "none";
+					title_notes.style.color = "#000";
+				}
+				else {
+					title_notes.style.textDecoration = "line-through";
+					title_notes.style.color = "#696969";
+				}
 			}
 		})
 	}
 	for(let i = 1; i <= clicks; i++) {
   	let del = document.getElementById(`delete${i}`)
   	del.addEventListener('click', function () {
-	  	let elem = document.getElementById(`note${clicks}`)
+	  	let elem = document.getElementById(`note${i}`)
 			localStorage.setItem('clicks', --clicks);
 			console.log(clicks);
   		elem.style.opacity = '0';
@@ -213,7 +240,7 @@ function onloadpage() {
 			let txt = document.getElementById('txt_input');
 			title.value = localStorage.getItem(`title${i}`);
 			txt.value = localStorage.getItem(`txt${i}`);
-	  	let elem = document.getElementById(`note${clicks}`)
+	  	let elem = document.getElementById(`note${i}`)
 			localStorage.setItem('clicks', --clicks);
 			console.log(clicks);
   		elem.style.opacity = '0';
