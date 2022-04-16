@@ -60,7 +60,6 @@ btn_n.addEventListener('click', function() {
 	if(title.value == "Заметка" || title.value == "Note" || title.value == "Нотатка" || title.value == "La note" || title.value == "Die Notiz" || title.value == "Notatka"){
 		title.value += clicks;
 	}
-	console.log(title.value)
 
 	localStorage.setItem(`title${clicks}`, title.value);
 	localStorage.setItem(`txt${clicks}`, txt.value);
@@ -109,19 +108,25 @@ btn_n.addEventListener('click', function() {
 		let made = document.getElementById(`made${i}`);
 		made.addEventListener('click', function () {	
 			let title_notes = document.getElementById(`title_notes${i}`);
-			if(title_notes.style.textDecoration == "line-through") {
-				if(activeTheme == 'dark') {
+			if(activeTheme == 'dark') {
+				if(title_notes.style.textDecoration == "line-through") {
 					title_notes.style.textDecoration = "none";
 					title_notes.style.color = "#fff";
 				}
-				if(activeTheme == 'light') {
+				else {
+					title_notes.style.textDecoration = "line-through";
+					title_notes.style.color = "#696969";
+				}
+			}
+			if(activeTheme == 'light') {
+				if(title_notes.style.textDecoration == "line-through") {
 					title_notes.style.textDecoration = "none";
 					title_notes.style.color = "#000";
 				}
-			}
-			else {
-				title_notes.style.textDecoration = "line-through";
-				title_notes.style.color = "#696969";
+				else {
+					title_notes.style.textDecoration = "line-through";
+					title_notes.style.color = "#696969";
+				}
 			}
 		})
 	}
@@ -173,18 +178,17 @@ function onloadpage() {
 		made.addEventListener('click', function () {	
 			let title_notes = document.getElementById(`title_notes${i}`);
 			if(title_notes.style.textDecoration == "line-through") {
-				if(activeTheme == 'dark') {
-					title_notes.style.textDecoration = "none";
-					title_notes.style.color = "#fff";
-				}
-				if(activeTheme == 'light') {
-					title_notes.style.textDecoration = "none";
+				title_notes.style.textDecoration = "none";
+				if(activeTheme == "light") {
 					title_notes.style.color = "#000";
+				}
+				if(activeTheme == "dark"){
+					title_notes.style.color = "#fff"
 				}
 			}
 			else {
-				let tit_dec = title_notes.style.textDecoration = "line-through";
-				let tit_col = title_notes.style.color = "#696969";
+				title_notes.style.textDecoration = "line-through";
+				title_notes.style.color = "#696969";
 			}
 		})
 	}
