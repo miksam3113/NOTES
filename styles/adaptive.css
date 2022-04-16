@@ -112,10 +112,10 @@
 		background-color: rgba(0,0,0,0);
 		border: none;
 		color: #fff;
+		background-color: #2e2e2e;
 		font-size: 35px;
 		height: 40px;
 	}
-
 	#notes {
 		width: 100%;
 	  display: grid;
@@ -130,7 +130,6 @@
 	  margin-top: 5px;
 	}
 	.theme {
-		border: 1px solid #fff;
 		margin-left: -150px;
 		margin-top: 5px;
 	}

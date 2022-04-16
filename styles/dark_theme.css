@@ -61,6 +61,7 @@ select {
 }
 
 .theme {
+	border: 1px solid #fff;
 	background-color: #2e2e2e;
 	box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
