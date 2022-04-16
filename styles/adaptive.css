@@ -86,12 +86,26 @@
 		display: flex;
 		font-family: 'Oswald', sans-serif;
 	}
+	.note {
+		margin-left: 1px;
+		margin-right: 1px;
+		transition : all .3s;
+    -wekit-transition : all .3s;
+    -moz-transition : all .3s;
+	}
+	@keyframes slidein {
+	  from {
+	    margin-left: 100%;
+	  }
+	  to {
+	    margin-left: 0px;
+	  }
+	}
 	#notes {
-		margin-left: 12.5px;
-		width: 350px;
+		width: 100%;
 	  display: grid;
-	  grid-template-columns: repeat(1, 1fr);
-	  grid-row-gap: 30px;
+	  grid-template-columns: repeat(1, 300px);
+	  justify-content: center;
 	}
 	select {
 		width: 100px;

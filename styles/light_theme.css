@@ -32,24 +32,31 @@ p {
 	color: #000;
 }
 
+.title_note {
+	color: #000;
+}
+
 .note {
 	border: 1px solid #000;
-	background-color: rgba(255,255,255,255);
+	background-color: rgba(0,0,0,0);
 }
 
 .delete {
-	background-color: rgba(255,255,255,255);
+	background-color: rgba(0,0,0,0);
 	color: #000;
+	cursor: pointer;
 }
 
 .made {
-	background-color: rgba(255,255,255,255);
+	background-color: rgba(0,0,0,0);
 	color: #000;
+	cursor: pointer;
 }
 
 .open {
 	background-color: #fff;
 	border: 1px solid #000;
+	cursor: pointer;
 }
 
 select {
@@ -63,10 +70,10 @@ select {
 	box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-.th[data-theme="dark"] {
+#th[data-theme="dark"] {
 	display: block;
 }
 
-.th[data-theme="light"] {
+#th[data-theme="light"] {
 	display: none;
 }
