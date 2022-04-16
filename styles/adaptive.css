@@ -101,6 +101,21 @@
 	    margin-left: 0px;
 	  }
 	}
+	.delete {
+		background-color: rgba(0,0,0,0);
+		border: none;
+		color: #fff;
+		font-size: 35px;
+		height: 40px;
+	}
+	.made {
+		background-color: rgba(0,0,0,0);
+		border: none;
+		color: #fff;
+		font-size: 35px;
+		height: 40px;
+	}
+
 	#notes {
 		width: 100%;
 	  display: grid;
