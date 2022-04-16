@@ -104,17 +104,14 @@
 	.delete {
 		background-color: rgba(0,0,0,0);
 		border: none;
-		color: #fff;
+		color: #fff !important;
 		font-size: 35px;
 		height: 40px;
 	}
 	.made {
 		background-color: rgba(0,0,0,0);
 		border: none;
-		color: #fff;
-		background-color: #2e2e2e;
-		font-size: 35px;
-		height: 40px;
+		color: #fff !important;
 	}
 	#notes {
 		width: 100%;
