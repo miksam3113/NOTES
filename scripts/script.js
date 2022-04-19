@@ -4,31 +4,39 @@ let clicks = localStorage.getItem('clicks');
 let arrlang = ["ru", "en", "ua", "fr", "de", "pl"]
 const select = document.getElementById('sel_l');
 const themeSwitcher = document.querySelectorAll('#th');
+
+if(localStorage.getItem('theme') == null) {
+	localStorage.setItem('theme', "dark");
+}
+
 let activeTheme = localStorage.getItem('theme');
 
 themeSwitcher.forEach(switcher => {
 	switcher.addEventListener('click', function() {
 		applyTheme(this.dataset.theme);
 		localStorage.setItem('theme', this.dataset.theme)
-		if(localStorage.getItem('theme') == "dark") {
-			if(title_notes.style.textDecoration == "line-through") {
+		for(let i = 1; i <= clicks; i++){
+			let title_notes = document.getElementById(`title_notes${i}`);
+			if(localStorage.getItem('theme') == "dark") {
 				title_notes.style.textDecoration = "none";
 				title_notes.style.color = "#fff";
 			}
-			else {
-				title_notes.style.textDecoration = "line-through";
-				title_notes.style.color = "#696969";
-			}
-		}
-		if(localStorage.getItem('theme') == "light") {
-			if(title_notes.style.textDecoration == "line-through") {
+			if(localStorage.getItem('theme') == "light") {
 				title_notes.style.textDecoration = "none";
 				title_notes.style.color = "#000";
 			}
-			else {
-				title_notes.style.textDecoration = "line-through";
-				title_notes.style.color = "#696969";
-			}
+		}
+		for(let i = 1; i <= clicks; i++){
+			let btn_el_m_img = document.getElementById(`made_img${i}`);
+			let btn_el_d_img = document.getElementById(`del_img${i}`);
+			if(localStorage.getItem('theme') == "dark") {
+	  		btn_el_m_img.setAttribute('src', "images/made dark.png");
+	  		btn_el_d_img.setAttribute('src', "images/delete dark.png");
+	  	}
+	  	if(localStorage.getItem('theme') == "light") {
+	  		btn_el_m_img.setAttribute('src', "images/made light.png");
+	  		btn_el_d_img.setAttribute('src', "images/delete light.png");
+	  	}
 		}
 	})
 })
@@ -93,12 +101,20 @@ btn_n.addEventListener('click', function() {
 	let all_st = document.createElement("div");
   all_st.classList.add("all_st");
 	note_el.appendChild(all_st);
-
 	let btn_el_m = document.createElement("button");
-  btn_el_m.id = `made${clicks}`;
   btn_el_m.classList.add("made");
-  btn_el_m.innerHTML = "&#10004";
-	all_st.appendChild(btn_el_m);
+  btn_el_m.id = `made${clicks}`;
+  let btn_el_m_img = document.createElement("img");
+  btn_el_m_img.classList.add("made_img")
+  btn_el_m_img.id = `made_img${clicks}`;
+  if(localStorage.getItem('theme') == "dark") {
+  	btn_el_m_img.setAttribute('src', "images/made dark.png");
+  }
+  if(localStorage.getItem('theme') == "light") {
+  	btn_el_m_img.setAttribute('src', "images/made light.png");
+  }
+  all_st.appendChild(btn_el_m);
+  btn_el_m.appendChild(btn_el_m_img);
 
 	let title_note_el = document.createElement("p");
   title_note_el.id = `title_notes${clicks}`;
@@ -107,10 +123,19 @@ btn_n.addEventListener('click', function() {
 	all_st.appendChild(title_note_el);
 
 	let btn_el_d = document.createElement("button");
+  btn_el_d.classList.add("delete");
   btn_el_d.id = `delete${clicks}`;
-  btn_el_d.classList.add("delete")
-  btn_el_d.innerHTML = "&#10006";
-	all_st.appendChild(btn_el_d);
+  let btn_el_d_img = document.createElement("img");
+  btn_el_d_img.classList.add("delete_img");
+  btn_el_d_img.id = `del_img${clicks}`;
+  if(localStorage.getItem('theme') == "dark") {
+  	btn_el_d_img.setAttribute('src', "images/delete dark.png");
+  }
+  if(localStorage.getItem('theme') == "light") {
+  	btn_el_d_img.setAttribute('src', "images/delete light.png");
+  }
+  all_st.appendChild(btn_el_d);
+  btn_el_d.appendChild(btn_el_d_img);
 
 	let btn_open = document.createElement("button");
   btn_open.id = `open${clicks}`;
@@ -193,6 +218,20 @@ function onloadpage() {
 	else {
 		notes.innerHTML = localStorage.getItem(`note${clicks}`);
 	}
+
+	for(let i = 1; i <= clicks; i++){
+		let btn_el_m_img = document.getElementById(`made_img${i}`);
+		let btn_el_d_img = document.getElementById(`del_img${i}`);
+		if(localStorage.getItem('theme') == "dark") {
+	  	btn_el_m_img.setAttribute('src', "images/made dark.png");
+	  	btn_el_d_img.setAttribute('src', "images/delete dark.png");
+	  }
+	  if(localStorage.getItem('theme') == "light") {
+	  	btn_el_m_img.setAttribute('src', "images/made light.png");
+	  	btn_el_d_img.setAttribute('src', "images/delete light.png");
+	  }
+	}
+
 	for(let i = 1; i <= clicks; i++){
 		let made = document.getElementById(`made${i}`);
 		made.addEventListener('click', function () {	
